@@ -30,7 +30,7 @@ int main() {
     Funcionario **funcs = (Funcionario **)malloc(N_FUNCIONARIOS * sizeof(Funcionario *));
     int numFuncionarios = 0;
 
-    FILE* arquivo = abrir_arquivo(funcs,&numFuncionarios);
+    FILE*arquivo = abrir_arquivo(funcs,&numFuncionarios);
 
     char nome[101];
     char cargo[21];
@@ -43,17 +43,17 @@ int main() {
         printf("1-- CADASTRAR FUNCIONARIO --\n");
         printf("2-- LISTAR FUNCIONARIO\n");
         printf("3-- SAIR\n");
-        scanf("%d", &opcao);
+        scanf(" %d", &opcao);
         limpar_buffer();
 
         switch (opcao) {
             case 1:
             if (numFuncionarios < N_FUNCIONARIOS){
                 printf("Digite o nome do funcionario: ");
-                scanf(" %[^\n]", nome);
+                scanf(" %100[^\n]", nome);
                 limpar_buffer();
                 printf("Digite o cargo do funcionario: ");
-                scanf(" %[^\n]", cargo);
+                scanf(" %20[^\n]", cargo);
                 limpar_buffer();
                 printf("Digite o numero do documento do funcionario: ");
                 while(scanf("%d", &documento) != 1){
